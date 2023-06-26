@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import '~@/style/fonts/_all';
+
+body {
+  font-family: 'Gotham Condensed', sans-serif;
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+}

@@ -1,11 +1,9 @@
 <template>
   <Navbar />
-<!--  <div class="p-2 bg-primary flex flex-col gap-2">-->
-<!--    <div>-->
-<!--      {{ games }}-->
-<!--    </div>-->
-<!--  </div>-->
-  <router-view></router-view>
+
+  <div class="content py-xl flex-1">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script
@@ -13,7 +11,13 @@
   lang="ts"
 >
 import Navbar from '@/entities/app/components/layouts/Navbar.vue';
-// import { useGetGamesQuery } from '@/entities/games/hooks';
-//
-// const { data: games } = useGetGamesQuery();
 </script>
+
+<style lang="scss" scoped>
+  .content {
+    background-image: url('~@/assets/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>

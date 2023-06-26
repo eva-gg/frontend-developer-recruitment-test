@@ -1,7 +1,7 @@
 import Profile from '@/views/Profile.vue';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: () => ({
@@ -12,6 +12,37 @@ const routes: Array<RouteRecordRaw> = [
     name: 'profile',
     path: '/profile',
     component: Profile,
+    meta: {
+      visible: true,
+      label: 'Mon profile',
+    },
+  },
+  {
+    name: 'history',
+    path: '/history',
+    component: Profile,
+    meta: {
+      visible: true,
+      label: 'Historique',
+    },
+  },
+  {
+    name: 'seasonPath',
+    path: '/seasson-path',
+    component: Profile,
+    meta: {
+      visible: true,
+      label: 'Season Pass',
+    },
+  },
+  {
+    name: 'account',
+    path: '/account',
+    component: Profile,
+    meta: {
+      visible: true,
+      label: 'Mon compte',
+    },
   },
 ];
 

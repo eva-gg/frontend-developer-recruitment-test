@@ -64,6 +64,7 @@ import { useGetCurrentUserQuery } from '@/entities/user/hooks';
 import newsFrame from '@/assets/news-frame.png';
 
 const { data: loggedUser } = useGetCurrentUserQuery();
+const {data} = useGetStatisticsByUser();
 
 const seasonStore = useSeasonsStore();
 const activeSeasonId = computed(() => seasonStore.getActiveSeasonId);

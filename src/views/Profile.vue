@@ -42,9 +42,12 @@
             alt=""
           >
           <div class="flex justify-between flex-1 items-end">
-            <h3 class="text-white text-lg2 text-bold uppercase tracking-md max-w-[250px] leading-[30px]">Découvrez la saison 3 et ses nouveautés</h3>
+            <h3 class="text-white text-lg2 text-bold uppercase tracking-md max-w-[250px] leading-[30px]">Découvrez la
+              saison 3 et ses nouveautés</h3>
             <div>
-              <button class="uppercase text-white border min-h-[55px] tracking-md border-white inline-flex justify-center items-center min-w-[150px] text-lg font-bold">Voir</button>
+              <button class="uppercase text-white border min-h-[55px] tracking-md border-white inline-flex justify-center items-center min-w-[150px] text-lg font-bold">
+                Voir
+              </button>
             </div>
           </div>
         </div>
@@ -57,6 +60,7 @@
   setup
   lang="ts"
 >
+import { useGetStatisticsByUser } from '@/entities/statistic/hooks';
 import { useSeasonsStore } from '@/store/seasons.store';
 import { computed, onMounted } from 'vue';
 import { useGetCurrentUserQuery } from '@/entities/user/hooks';
@@ -64,7 +68,12 @@ import { useGetCurrentUserQuery } from '@/entities/user/hooks';
 import newsFrame from '@/assets/news-frame.png';
 
 const { data: loggedUser } = useGetCurrentUserQuery();
-const {data} = useGetStatisticsByUser();
+const statsQueryParams = computed(() => ({ id: loggedUser.value?.id }));
+const hasStatsQueryParams = computed(() => !!statsQueryParams.value.id);
+
+const { data: stats } = useGetStatisticsByUser({ id: loggedUser.value.id }, {
+  enabled: hasStatsQueryParams,
+});
 
 const seasonStore = useSeasonsStore();
 const activeSeasonId = computed(() => seasonStore.getActiveSeasonId);
@@ -74,15 +83,18 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
-  .profile {
-    .profile__season-frame {
-      background-image: url('~@/assets/season-frame.webp');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 213px;
-      width: 252px;
-    }
+<style
+  lang="scss"
+  scoped
+>
+.profile {
+  .profile__season-frame {
+    background-image: url('~@/assets/season-frame.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 213px;
+    width: 252px;
   }
+}
 </style>

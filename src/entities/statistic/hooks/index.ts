@@ -2,10 +2,15 @@ import { GetStatisticUserData } from '@/entities/statistic/type';
 import { useQuery } from '@tanstack/vue-query';
 
 import { getStatisticByUser } from '@/entities/statistic/services';
+import { Ref } from 'vue';
 
 const statisticQueryName = 'statistics';
 
-export const useGetStatisticsByUser = (data: GetStatisticUserData) => useQuery({
+export const useGetStatisticsByUser = (
+  data: Ref<GetStatisticUserData>,
+  options = {},
+) => useQuery({
   queryKey: [statisticQueryName, { id: 1 }],
-  queryFn: () => getStatisticByUser(data),
+  queryFn: () => getStatisticByUser(data.value),
+  ...options,
 });

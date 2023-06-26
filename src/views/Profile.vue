@@ -62,16 +62,16 @@
 >
 import { useGetStatisticsByUser } from '@/entities/statistic/hooks';
 import { useSeasonsStore } from '@/store/seasons.store';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, Ref } from 'vue';
 import { useGetCurrentUserQuery } from '@/entities/user/hooks';
 
 import newsFrame from '@/assets/news-frame.png';
 
 const { data: loggedUser } = useGetCurrentUserQuery();
-const statsQueryParams = computed(() => ({ id: loggedUser.value?.id }));
+const statsQueryParams: Ref = computed(() => ({ id: loggedUser.value?.id }));
 const hasStatsQueryParams = computed(() => !!statsQueryParams.value.id);
 
-const { data: stats } = useGetStatisticsByUser({ id: loggedUser.value.id }, {
+const { data: stats } = useGetStatisticsByUser(statsQueryParams.value, {
   enabled: hasStatsQueryParams,
 });
 

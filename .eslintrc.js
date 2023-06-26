@@ -19,5 +19,6 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'vuejs-accessibility/form-control-has-label': 'off',
     'max-len': 'off',
+    'template-curly-spacing': 'off',
   },
 };

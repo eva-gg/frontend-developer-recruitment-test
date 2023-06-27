@@ -7,9 +7,18 @@
             <span class="block text-white text-xxl uppercase tracking-lg leading-[60px]">
               {{ loggedUser?.displayName }}
             </span>
-            <span class="block text-white text-lg2 uppercase tracking-md">Niveau : 20/100</span>
-            <div class="h-[13px] bg-black-100">
-              <div class="h-full w-80 bg-secondary"></div>
+
+            <div>
+              <span class="block text-white text-lg2 uppercase tracking-md">
+                Niveau : {{ userExperience?.level }} / 100
+              </span>
+
+              <div class="h-[13px] bg-black-100">
+                <span
+                  class="h-full block bg-secondary"
+                  :style="{width: `${userExperience?.levelProgressionPercentage}%`}"
+                ></span>
+              </div>
             </div>
           </div>
 
@@ -18,15 +27,27 @@
           </div>
         </div>
 
-        <div class="-my-[33.5px]">
+        <div class="-mt-[33.5px]">
           <span class="block text-lg2 text-white uppercase">STATISTIQUES : AFTER-H BATTLE ARENA</span>
           <span class="block text-primary italic font-sans">Les sessions jouées avant le lancement de la saison 3 seront comptabilisées pour la saison 1</span>
         </div>
 
         <div class="flex gap-sm">
-          <span>210</span>
-          <span>125</span>
-          <span>85</span>
+          <Tile title="210" subtitle="partie jouées" />
+          <span>{{ userStats?.gameCount }}</span>
+          <span>{{ userStats?.gameVictoryCount }}</span>
+          <span>{{ userStats?.gameDefeatCount }}</span>
+        </div>
+
+        <div class="flex">
+          <div>{{ userStats?.gameVictoryCount / userStats?.gameDefeatCount }}</div>
+        </div>
+
+        <div class="grid grid-cols-12">
+          <div class="col-span-6">{{ userStats?.inflictedDamage }}</div>
+          <div class="col-span-6">{{ userStats?.bestKillStreak }}</div>
+          <div class="col-span-6">{{ userStats?.traveledDistance }}</div>
+          <div class="col-span-6">{{ userStats?.traveledDistanceAverage / 1000 }}</div>
         </div>
       </div>
 
@@ -60,27 +81,34 @@
   setup
   lang="ts"
 >
+import { computed, Ref } from 'vue';
+
+import { useGetExperienceByUser } from '@/entities/experience/hooks';
 import { useGetStatisticsByUser } from '@/entities/statistic/hooks';
 import { useSeasonsStore } from '@/store/seasons.store';
-import { computed, onMounted, Ref } from 'vue';
 import { useGetCurrentUserQuery } from '@/entities/user/hooks';
+
+import Tile from '@/cores/DataDisplay/Tile.vue';
 
 import newsFrame from '@/assets/news-frame.png';
 
+const seasonStore = useSeasonsStore();
 const { data: loggedUser } = useGetCurrentUserQuery();
+
 const statsQueryParams: Ref = computed(() => ({ id: loggedUser.value?.id }));
 const hasStatsQueryParams = computed(() => !!statsQueryParams.value.id);
 
-const { data: stats } = useGetStatisticsByUser(statsQueryParams.value, {
+const { data: userStats } = useGetStatisticsByUser(statsQueryParams, {
   enabled: hasStatsQueryParams,
 });
 
-const seasonStore = useSeasonsStore();
-const activeSeasonId = computed(() => seasonStore.getActiveSeasonId);
-
-onMounted(() => {
-  console.log('hello world');
+const { data: userExperience } = useGetExperienceByUser(statsQueryParams, {
+  enabled: hasStatsQueryParams,
 });
+
+const activeSeasonId = computed(() => seasonStore.getActiveSeasonId);
+const hasExperienceForSeason = computed(() => (userExperience.value.seasonId === activeSeasonId.value ? userExperience.value : null));
+
 </script>
 
 <style

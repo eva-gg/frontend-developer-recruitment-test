@@ -18,6 +18,7 @@ const tokens = {
     },
   },
   spacing: {
+    xxs: '4px',
     xs: '9px',
     sm: '13px',
     md: '16px',

@@ -10,7 +10,7 @@ export const useGetStatisticsByUser = (
   data: Ref<GetStatisticUserData>,
   options = {},
 ) => useQuery({
-  queryKey: [statisticQueryName, { id: 1 }],
+  queryKey: [statisticQueryName, data.value],
   queryFn: () => getStatisticByUser(data.value),
   ...options,
 });

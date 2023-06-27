@@ -1,4 +1,4 @@
 import { api } from '@/utils/api';
-import { GetGamesData } from '@/entities/games/types';
+import { Game } from '@/entities/games/types';
 
-export const getGames: Promise<GetGamesData> = api.get('/games');
+export const getGames = (): Promise<Game[]> => api.get('/games');

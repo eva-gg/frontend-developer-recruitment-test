@@ -28,6 +28,7 @@ const tokens = {
   },
   fontSize: {
     md: '16px',
+    md2: '18px',
     lg: '24px',
     lg2: '29px',
     xl: '40px',

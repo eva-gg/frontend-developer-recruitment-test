@@ -33,21 +33,79 @@
         </div>
 
         <div class="flex gap-sm">
-          <Tile title="210" subtitle="partie jouées" />
-          <span>{{ userStats?.gameCount }}</span>
-          <span>{{ userStats?.gameVictoryCount }}</span>
-          <span>{{ userStats?.gameDefeatCount }}</span>
+          <Tile class="flex-[1.4]">
+            <span class="block text-white font-bold text-xl uppercase">{{ userStats?.gameCount }}</span>
+            <span class="text-primary font-sans font-thin text-md2">parties jouées</span>
+          </Tile>
+
+          <Tile class="flex-1">
+            <img
+              :src="victoryIcon"
+              alt=""
+            >
+            <span class="block text-primary text-lg font-bold uppercase tracking-md">Victoires</span>
+            <span class="text-white text-md2 font-sans">{{ userStats?.gameVictoryCount }}</span>
+          </Tile>
+
+          <Tile class="flex-1">
+            <img
+              :src="defeatIcon"
+              alt=""
+            >
+            <span class="block text-primary text-lg font-bold uppercase tracking-md">Défaites</span>
+            <span class="text-white text-md2 font-sans">{{ userStats?.gameDefeatCount }}</span>
+          </Tile>
         </div>
 
-        <div class="flex">
-          <div>{{ userStats?.gameVictoryCount / userStats?.gameDefeatCount }}</div>
+        <div class="flex gap-lg">
+          <Tile class="flex-1">
+            <div class="flex gap-xl">
+              <img
+                :src="timeIcon"
+                alt=""
+              >
+              <div>
+                <span class="block text-primary text-md uppercase tracking-md">Temps de jeu cumulé</span>
+                <span class="text-white text-md2 font-sans flex items-center gap-2 font-thin">
+                  <span class="!font-gotham uppercase text-xl font-bold tracking-md">
+                    {{ userStats?.gameTime / 3600 }}
+                  </span>
+                  heures
+                </span>
+              </div>
+            </div>
+          </Tile>
+
+          <div class="h-[163px] w-[163px] bg-red-100">
+<!--            <div>{{ userStats?.gameVictoryCount / userStats?.gameDefeatCount }}</div>-->
+          </div>
         </div>
 
         <div class="grid grid-cols-12">
-          <div class="col-span-6">{{ userStats?.inflictedDamage }}</div>
-          <div class="col-span-6">{{ userStats?.bestKillStreak }}</div>
-          <div class="col-span-6">{{ userStats?.traveledDistance }}</div>
-          <div class="col-span-6">{{ userStats?.traveledDistanceAverage / 1000 }}</div>
+          <div class="col-span-6">
+            <Tile>
+              <span class="block text-primary text-md uppercase tracking-md">Max dégâts dans une partie</span>
+              <span class="block text-white font-bold text-xl uppercase tracking-lg">{{ userStats?.inflictedDamage }}</span>
+            </Tile>
+          </div>
+          <div class="col-span-6">
+            <Tile>
+              <span class="block text-primary text-md uppercase tracking-md">Max kill streak</span>
+              <span class="block text-white font-bold text-xl uppercase tracking-lg">{{ userStats?.bestKillStreak }}</span>
+            </Tile>
+          </div>
+          <div class="col-span-6">
+            <Tile>
+              <span class="block text-primary text-md uppercase tracking-md">Total distance parcouruek</span>
+              <span class="block text-white font-bold text-xl uppercase tracking-lg">{{ userStats?.traveledDistance }}</span>
+            </Tile>
+          </div>
+          <div class="col-span-6">
+            <Tile>
+              <span class="block text-primary text-md uppercase tracking-md">Moy distance / partie</span>
+              <span class="block text-white font-bold text-xl uppercase tracking-lg">{{ userStats?.traveledDistanceAverage / 1000 }}</span>
+            </Tile>
+          </div>
         </div>
       </div>
 
@@ -91,6 +149,9 @@ import { useGetCurrentUserQuery } from '@/entities/user/hooks';
 import Tile from '@/cores/DataDisplay/Tile.vue';
 
 import newsFrame from '@/assets/news-frame.png';
+import victoryIcon from '@/assets/victory-icon.svg';
+import defeatIcon from '@/assets/defeat-icon.svg';
+import timeIcon from '@/assets/time-icon.svg';
 
 const seasonStore = useSeasonsStore();
 const { data: loggedUser } = useGetCurrentUserQuery();

@@ -1,39 +1,45 @@
 <template>
-  <div class="tile">
-    <div class="tile__content">
-      <template v-if="$slots.default">
-        <slot />
-      </template>
+    <div class="tile">
+        <div class="tile__content">
+            <!--            <template v-if="$slots.default">-->
+            <slot/>
+            <!--            </template>-->
 
-      <template v-else>
-        <h1>{{ props.title }}</h1>
-        <h2>{{ props.subtitle }}</h2>
-      </template>
+            <!--            <template v-else>-->
+            <!--                <div class="flex flex-col" :class="{'!flex-col-reverse': props.reverse}">-->
+            <!--                    <span class="">{{ props.title }}</span>-->
+            <!--                    <span>{{ props.subtitle }}</span>-->
+            <!--                </div>-->
+            <!--            </template>-->
+        </div>
     </div>
-  </div>
 </template>
 
 <script
-  lang="ts"
-  setup
+    lang="ts"
+    setup
 >
-import { defineProps } from 'vue';
+// import {defineProps} from 'vue';
 
-const props = defineProps({
-  title: {
-    type: String,
-    default: '',
-  },
-  subtitle: {
-    type: String,
-    default: '',
-  },
-});
+// const props = defineProps({
+//     title: {
+//         type: String,
+//         default: '',
+//     },
+//     subtitle: {
+//         type: String,
+//         default: '',
+//     },
+//     reverse: {
+//         type: Boolean,
+//         default: false,
+//     },
+// });
 </script>
 
 <style
-  lang="scss"
-  scoped
+    lang="scss"
+    scoped
 >
 .tile {
   display: flex;
@@ -56,6 +62,10 @@ const props = defineProps({
     border: 1px solid rgba(255, 255, 255, 0.15);
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 </style>

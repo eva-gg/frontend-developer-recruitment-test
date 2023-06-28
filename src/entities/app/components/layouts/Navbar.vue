@@ -15,7 +15,7 @@
 
     <div class="navbar__season mx-lg">
       <select
-        class="uppercase tracking-lg text-md"
+        class="uppercase tracking-lg text-md bg-black text-white"
         @change="handleSeasonChange"
         :value="activeSeasonId"
       >

@@ -53,7 +53,7 @@
     position: absolute;
     inset: 0;
     content: '';
-    background-color: #1F41629B;
+    background-color: rgba(14, 27, 44, 0.47);
     backdrop-filter: blur(9px);
   }
 

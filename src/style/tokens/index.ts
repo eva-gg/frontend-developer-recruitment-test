@@ -11,6 +11,7 @@ const tokens = {
       100: '#000C19',
     },
     gray: {
+      100: '#C3BEB5',
       DEFAULT: '#707070',
     },
     purple: {
@@ -34,9 +35,18 @@ const tokens = {
     xl: '40px',
     xxl: '68px',
   },
+  lineHeight: {
+    md: '14px',
+    md2: '17px',
+    lg: '20px',
+    lg2: '25px',
+    xl: '36px',
+    xxl: '64px',
+  },
   letterSpacing: {
-    lg: '3.6px',
     md: '1.45px',
+    md2: '1.65px',
+    lg: '3.6px',
   },
   fontFamily: {
     gotham: ['Gotham Condensed', 'sans-serif'],

@@ -21,5 +21,6 @@ import Navbar from '@/entities/app/components/layouts/Navbar.vue';
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #161A26;
 }
 </style>

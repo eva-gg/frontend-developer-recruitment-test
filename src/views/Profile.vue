@@ -1,7 +1,7 @@
 <template>
-  <div class="profile mx-auto !2xl:max-w-[1364px] container">
+  <div class="profile mx-auto 2xl:max-w-[1364px] container">
     <div class="grid grid-cols-12 gap-md2">
-      <div class="col-span-6">
+      <div class="lg:col-span-6 col-span-12">
         <div class="flex gap-md2">
           <div class="space-y-xs flex-1">
             <template v-if="!experienceIsLoading">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="-mt-[33.5px]">
+        <div class="xl:-mt-[33.5px]">
           <span class="block text-lg2 text-white uppercase">STATISTIQUES : AFTER-H BATTLE ARENA</span>
           <span class="block text-primary italic font-sans">Les sessions jouées avant le lancement de la saison 3 seront comptabilisées pour la saison 1</span>
         </div>
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <div class="col-span-6 space-y-xl">
+      <div class="lg:col-span-6 col-span-12 space-y-xl">
         <div class="h-[372px] bg-black px-lg py-md relative z-10 flex items-end">
           <span class="text-white uppercase bg-black py-1 px-sm absolute top-md left-lg tracking-md">
               News
@@ -104,7 +104,7 @@
 
     <div class="grid grid-cols-12 mt-md2 gap-md2">
       <div
-        class="col-span-6"
+        class="xl:col-span-6 col-span-12"
         v-if="isProfileRoute"
       >
         <div class="flex gap-lg">
@@ -129,7 +129,7 @@
           </template>
 
           <template v-else>
-            <Skeletor height="200" class="flex-1"/>
+            <Skeletor height="155" class="flex-1"/>
           </template>
 
           <div class="h-[163px] w-[163px]">
@@ -179,16 +179,16 @@
         <template v-else>
           <div class="grid grid-cols-12 gap-x-sm gap-y-md2 mt-md2">
             <div class="col-span-6">
-              <Skeletor height="100" class="flex-1"/>
+              <Skeletor height="70" class="flex-1"/>
             </div>
             <div class="col-span-6">
-              <Skeletor height="100" class="flex-1"/>
+              <Skeletor height="70" class="flex-1"/>
             </div>
             <div class="col-span-6">
-              <Skeletor height="100" class="flex-1"/>
+              <Skeletor height="70" class="flex-1"/>
             </div>
             <div class="col-span-6">
-              <Skeletor height="100" class="flex-1"/>
+              <Skeletor height="70" class="flex-1"/>
             </div>
           </div>
         </template>
@@ -197,7 +197,7 @@
       <div
         class="mt-md2"
         :class="{
-          'col-span-6': isProfileRoute,
+          'xl:col-span-6 col-span-12': isProfileRoute,
           'col-span-12': !isProfileRoute
         }"
       >
@@ -207,30 +207,32 @@
         ></span>
 
         <template v-if="!historyLoading">
-          <table class="table mt-sm">
-            <thead>
-            <th>Jeu</th>
-            <th>Joueurs</th>
-            <th>Map</th>
-            <th>Résultat</th>
-            <th>Date</th>
-            <th>Heure</th>
-            </thead>
+          <div class="overflow-auto">
+            <table class="table mt-sm">
+              <thead>
+              <th>Jeu</th>
+              <th>Joueurs</th>
+              <th>Map</th>
+              <th>Résultat</th>
+              <th>Date</th>
+              <th>Heure</th>
+              </thead>
 
-            <tbody>
-            <tr
-              v-for="(gameHistory, i) in getGameHistories"
-              :key="i"
-            >
-              <td>{{ gameHistory?.game?.name }}</td>
-              <td>{{ gameHistory.playerLength }}</td>
-              <td>{{ gameHistory.map }}</td>
-              <td>{{ gameHistory.gameStatus }}</td>
-              <td>{{ gameHistory.date }}</td>
-              <td>{{ gameHistory.dateHours }}</td>
-            </tr>
-            </tbody>
-          </table>
+              <tbody>
+              <tr
+                v-for="(gameHistory, i) in getGameHistories"
+                :key="i"
+              >
+                <td>{{ gameHistory?.game?.name }}</td>
+                <td>{{ gameHistory.playerLength }}</td>
+                <td>{{ gameHistory.map }}</td>
+                <td>{{ gameHistory.gameStatus }}</td>
+                <td>{{ gameHistory.date }}</td>
+                <td>{{ gameHistory.dateHours }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div
             class="flex justify-end mt-lg"

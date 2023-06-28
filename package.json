@@ -15,9 +15,11 @@
     "lodash": "^4.17.21",
     "pinia": "^2.1.4",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue-skeletor": "^1.0.6"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.195",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",

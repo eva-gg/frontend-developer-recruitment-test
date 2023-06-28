@@ -1,23 +1,25 @@
 <template>
-  <Navbar />
+    <Navbar/>
 
-  <div class="content py-xl flex-1">
-    <router-view></router-view>
-  </div>
+    <div class="pt-[46px]">
+        <div class="content py-xl flex-1 min-h-[calc(100vh-46px)]">
+            <router-view></router-view>
+        </div>
+    </div>
 </template>
 
 <script
-  setup
-  lang="ts"
+    setup
+    lang="ts"
 >
 import Navbar from '@/entities/app/components/layouts/Navbar.vue';
 </script>
 
 <style lang="scss" scoped>
-  .content {
-    background-image: url('~@/assets/background.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+.content {
+  background-image: url('~@/assets/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>

@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '~@/style/fonts/_all';
+@import '~vue-skeletor/dist/vue-skeletor.css';
 
+@import '~@/style/fonts/_all';
 @import '~@/style/components/_table.scss';
 
 body {

@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar flex px-[133px] bg-black h-[46px] items-center">
+  <div class="navbar flex px-[133px] bg-black h-[46px] items-center fixed w-full top-0 z-[1000]">
     <div class="flex items-center gap-2">
       <div class="flex relative items-center justify-center">
         <span class="absolute block text-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[25px] font-bold">20</span>
@@ -56,12 +56,12 @@
 >
 import { Season } from '@/entities/season/types';
 import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 import { useSeasonsStore } from '@/store/seasons.store';
 import { useGetSeasonsQuery } from '@/entities/season/hooks';
 import { useGetCurrentUserQuery } from '@/entities/user/hooks';
 
-import { useRoute } from 'vue-router';
 import { routes } from '@/router';
 
 import lvlFrameImg from '@/assets/lvl-frame.svg';

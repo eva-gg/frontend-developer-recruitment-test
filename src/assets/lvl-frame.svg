@@ -1,0 +1,67 @@
+<svg data-name="Minicadre niveau" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40.772" height="39.598" viewBox="0 0 40.772 39.598">
+    <defs>
+        <clipPath id="clip-path">
+            <rect id="Rectangle_692" data-name="Rectangle 692" width="40.772" height="39.598" fill="none"/>
+        </clipPath>
+        <clipPath id="clip-path-2">
+            <rect id="Rectangle_690" data-name="Rectangle 690" width="40.772" height="39.598" transform="translate(0 0)" fill="none"/>
+        </clipPath>
+        <clipPath id="clip-path-3">
+            <rect id="Rectangle_683" data-name="Rectangle 683" width="17.426" height="17.429" transform="translate(0 0.113)" fill="none"/>
+        </clipPath>
+        <clipPath id="clip-path-4">
+            <rect id="Rectangle_685" data-name="Rectangle 685" width="17.426" height="17.429" transform="translate(23.347 0.113)" fill="none"/>
+        </clipPath>
+        <clipPath id="clip-path-5">
+            <rect id="Rectangle_687" data-name="Rectangle 687" width="17.426" height="17.429" transform="translate(23.347 22.169)" fill="none"/>
+        </clipPath>
+        <clipPath id="clip-path-6">
+            <rect id="Rectangle_689" data-name="Rectangle 689" width="17.426" height="17.429" transform="translate(0 22.169)" fill="none"/>
+        </clipPath>
+    </defs>
+    <g id="Mini_cadre_S3" data-name="Mini cadre S3">
+        <g id="Groupe_1877" data-name="Groupe 1877" clip-path="url(#clip-path)">
+            <g id="Groupe_1876" data-name="Groupe 1876">
+                <g id="Groupe_1875" data-name="Groupe 1875" clip-path="url(#clip-path-2)">
+                    <g id="Groupe_1865" data-name="Groupe 1865" opacity="0.47">
+                        <g id="Groupe_1864" data-name="Groupe 1864">
+                            <g id="Groupe_1863" data-name="Groupe 1863" clip-path="url(#clip-path-3)">
+                                <path id="Tracé_1234" data-name="Tracé 1234" d="M6.636,11.546,1.721,16.461,0,14.742,4.92,9.824l0,0,2.791.639Zm-6,6L0,14.744l1.719,1.719Z" fill="#fff"/>
+                                <path id="Tracé_1235" data-name="Tracé 1235" d="M16.347,1.835,11.432,6.75,9.713,5.031,14.631.113l0,0,2.791.639Zm-6,6-.64-2.8L11.43,6.752Z" fill="#fff"/>
+                                <rect id="Rectangle_682" data-name="Rectangle 682" width="7.357" height="0.81" transform="translate(5.862 11.173) rotate(-45)" fill="#fff"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Groupe_1868" data-name="Groupe 1868" opacity="0.47">
+                        <g id="Groupe_1867" data-name="Groupe 1867">
+                            <g id="Groupe_1866" data-name="Groupe 1866" clip-path="url(#clip-path-4)">
+                                <path id="Tracé_1236" data-name="Tracé 1236" d="M33.057,10.467l2.791-.639.005,0,4.918,4.918-1.72,1.719-4.914-4.915Zm6,6,1.718-1.719-.64,2.8Z" fill="#fff"/>
+                                <path id="Tracé_1237" data-name="Tracé 1237" d="M23.347.756,26.138.117l0,0,4.917,4.918L29.34,6.75,24.426,1.835Zm6,6,1.719-1.719-.641,2.8Z" fill="#fff"/>
+                                <rect id="Rectangle_684" data-name="Rectangle 684" width="0.81" height="7.357" transform="translate(29.135 6.544) rotate(-45)" fill="#fff"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Groupe_1871" data-name="Groupe 1871" opacity="0.47">
+                        <g id="Groupe_1870" data-name="Groupe 1870">
+                            <g id="Groupe_1869" data-name="Groupe 1869" clip-path="url(#clip-path-5)">
+                                <path id="Tracé_1238" data-name="Tracé 1238" d="M34.137,28.165l4.915-4.915,1.719,1.719-4.918,4.918,0,0-2.791-.639Zm6-6,.64,2.8-1.719-1.719Z" fill="#fff"/>
+                                <path id="Tracé_1239" data-name="Tracé 1239" d="M24.426,37.876l4.915-4.915L31.06,34.68,26.142,39.6l0,0-2.791-.639Zm6-6,.64,2.8-1.719-1.719Z" fill="#fff"/>
+                                <rect id="Rectangle_686" data-name="Rectangle 686" width="7.357" height="0.81" transform="translate(29.135 33.167) rotate(-45)" fill="#fff"/>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Groupe_1874" data-name="Groupe 1874" opacity="0.47">
+                        <g id="Groupe_1873" data-name="Groupe 1873">
+                            <g id="Groupe_1872" data-name="Groupe 1872" clip-path="url(#clip-path-6)">
+                                <path id="Tracé_1240" data-name="Tracé 1240" d="M7.715,29.244l-2.791.639,0,0L0,24.969,1.721,23.25l4.915,4.915Zm-6-6L0,24.967l.64-2.8Z" fill="#fff"/>
+                                <path id="Tracé_1241" data-name="Tracé 1241" d="M17.426,38.955l-2.791.639,0,0L9.713,34.68l1.719-1.719,4.915,4.915Zm-6-6L9.711,34.678l.64-2.8Z" fill="#fff"/>
+                                <rect id="Rectangle_688" data-name="Rectangle 688" width="0.81" height="7.357" transform="translate(5.862 28.538) rotate(-45)" fill="#fff"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <rect id="Rectangle_691" data-name="Rectangle 691" width="28" height="28" transform="translate(0.701 19.799) rotate(-45)" fill="#fff"/>
+        </g>
+    </g>
+</svg>

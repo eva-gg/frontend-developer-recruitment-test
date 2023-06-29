@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '~vue-skeletor/dist/vue-skeletor.css';
+
+@import '~@/style/fonts/_all';
+@import '~@/style/components/_table.scss';
+
+body {
+  font-family: 'Gotham Condensed', sans-serif;
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+}

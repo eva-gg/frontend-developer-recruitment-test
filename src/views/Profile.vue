@@ -1,5 +1,5 @@
 <template>
-  <div class="profile mx-auto 2xl:max-w-[1334px] px-[15px] container">
+  <div class="profile mx-auto 2xl:max-w-[1394px] px-[15px] container">
     <div class="grid grid-cols-12 md:gap-md2">
       <div class="lg:col-span-6 col-span-12 order-1 md:p-0 pt-sm">
         <div class="flex gap-md2 md:items-start items-center">
@@ -84,7 +84,7 @@
       </div>
 
       <div class="lg:col-span-6 col-span-12 space-y-xl lg:order-1">
-        <div class="md:h-[372px] h-[200px] bg-black md:px-lg md:py-md relative z-10 flex items-end -mx-[15px]">
+        <div class="md:h-[372px] h-[200px] bg-black md:px-lg md:py-md relative z-10 flex items-end md:-mx-0 -mx-[15px]">
           <span class="text-white uppercase bg-black py-1 px-sm absolute top-md left-lg tracking-md">
               News
           </span>
@@ -142,14 +142,14 @@
             <Skeletor height="155" class="flex-1"/>
           </template>
 
-          <div class="h-[163px] w-[163px]">
+          <div class="h-[155px] w-[163px]">
             <!--            <div>{{ userStats?.gameVictoryCount / userStats?.gameDefeatCount }}</div>-->
           </div>
         </div>
 
         <template v-if="!statsAreLoading">
           <div class="grid grid-cols-12 gap-x-sm gap-y-md2 mt-md2">
-            <div class="col-span-6 flex">
+            <div class="col-span-6 flex lg:h-[97px]">
               <Tile class="flex-1">
                 <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Max dégâts dans une partie</span>
                 <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg">{{
@@ -157,7 +157,7 @@
                   }}</span>
               </Tile>
             </div>
-            <div class="col-span-6 flex">
+            <div class="col-span-6 flex lg:h-[97px]">
               <Tile class="flex-1">
                 <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Max kill streak</span>
                 <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg">{{
@@ -165,7 +165,7 @@
                   }}</span>
               </Tile>
             </div>
-            <div class="col-span-6 flex">
+            <div class="col-span-6 flex lg:h-[97px]">
               <Tile class="flex-1">
                 <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Total distance parcourue</span>
                 <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg flex items-center gap-2">
@@ -174,7 +174,7 @@
                 </span>
               </Tile>
             </div>
-            <div class="col-span-6 flex">
+            <div class="col-span-6 flex lg:h-[97px]">
               <Tile class="flex-1">
                 <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Moy distance / partie</span>
                 <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg flex items-center gap-2">

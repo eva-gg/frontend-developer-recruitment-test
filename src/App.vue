@@ -1,8 +1,8 @@
 <template>
     <Navbar/>
 
-    <div class="pt-[46px]">
-        <div class="content py-xl flex-1 min-h-[calc(100vh-46px)]">
+    <div class="md:pt-[46px] pt-[80px]">
+        <div class="content md:py-xl pb-xl flex-1 min-h-[calc(100vh-46px)]">
             <router-view></router-view>
         </div>
     </div>

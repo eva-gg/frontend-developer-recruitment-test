@@ -1,11 +1,11 @@
 <template>
-  <div class="profile mx-auto 2xl:max-w-[1364px] container">
-    <div class="grid grid-cols-12 gap-md2">
-      <div class="lg:col-span-6 col-span-12">
-        <div class="flex gap-md2">
+  <div class="profile mx-auto 2xl:max-w-[1334px] px-[15px] container">
+    <div class="grid grid-cols-12 md:gap-md2">
+      <div class="lg:col-span-6 col-span-12 order-1 md:p-0 pt-sm">
+        <div class="flex gap-md2 md:items-start items-center">
           <div class="space-y-xs flex-1">
             <template v-if="!experienceIsLoading">
-              <span class="block text-white text-xxl uppercase tracking-lg leading-[60px]">
+              <span class="block text-white md:text-xxl text-xl uppercase tracking-lg md:leading-xxl leading-xl">
                 {{ loggedUser?.displayName }}
               </span>
 
@@ -30,7 +30,7 @@
           </div>
 
           <div class="profile__season-frame flex items-center justify-center">
-            <span class="block text-white text-xl uppercase">Saison {{ activeSeasonId }}</span>
+            <span class="block text-white md:text-xl text-lg uppercase">Saison {{ activeSeasonId }}</span>
           </div>
         </div>
 
@@ -39,31 +39,39 @@
           <span class="block text-primary italic font-sans">Les sessions jouées avant le lancement de la saison 3 seront comptabilisées pour la saison 1</span>
         </div>
 
-        <div class="flex gap-sm h-[127px]">
+        <div class="flex gap-sm lg:h-[127px] lg:flex-nowrap flex-wrap">
           <template v-if="!statsAreLoading">
-            <Tile class="w-[252px]">
+            <Tile class="lg:w-[252px] w-full">
               <span class="block text-white font-bold text-xl uppercase leading-10">{{ userStats?.gameCount }}</span>
               <span class="text-primary font-sans font-thin text-md2">parties jouées</span>
             </Tile>
 
             <Tile class="flex-1">
-              <img
-                class="w-[43px]"
-                :src="victoryIcon"
-                alt=""
-              >
-              <span class="block text-primary text-lg font-bold uppercase tracking-md leading-md mb-1 mt-2">Victoires</span>
-              <span class="text-white text-md2 font-sans">{{ userStats?.gameVictoryCount }}</span>
+              <div class="flex lg:gap-0 gap-sm lg:flex-col items-center lg:w-auto w-full">
+                <img
+                  class="w-[43px]"
+                  :src="victoryIcon"
+                  alt=""
+                >
+                <div class="lg:text-center">
+                  <span class="block text-primary text-lg font-bold uppercase tracking-md leading-md mb-1 mt-2">Victoires</span>
+                  <span class="text-white text-md2 font-sans">{{ userStats?.gameVictoryCount }}</span>
+                </div>
+              </div>
             </Tile>
 
             <Tile class="flex-1">
-              <img
-                class="w-[43px]"
-                :src="defeatIcon"
-                alt=""
-              >
-              <span class="block text-primary text-lg font-bold uppercase tracking-md leading-md mb-1 mt-2">Défaites</span>
-              <span class="text-white text-md2 font-sans">{{ userStats?.gameDefeatCount }}</span>
+              <div class="flex lg:gap-0 gap-sm lg:flex-col items-center lg:w-auto w-full">
+                <img
+                  class="w-[43px]"
+                  :src="defeatIcon"
+                  alt=""
+                >
+                <div class="lg:text-center">
+                  <span class="block text-primary text-lg font-bold uppercase tracking-md leading-md mb-1 mt-2">Défaites</span>
+                  <span class="text-white text-md2 font-sans">{{ userStats?.gameDefeatCount }}</span>
+                </div>
+              </div>
             </Tile>
           </template>
 
@@ -75,24 +83,25 @@
         </div>
       </div>
 
-      <div class="lg:col-span-6 col-span-12 space-y-xl">
-        <div class="h-[372px] bg-black px-lg py-md relative z-10 flex items-end">
+      <div class="lg:col-span-6 col-span-12 space-y-xl lg:order-1">
+        <div class="md:h-[372px] h-[200px] bg-black md:px-lg md:py-md relative z-10 flex items-end -mx-[15px]">
           <span class="text-white uppercase bg-black py-1 px-sm absolute top-md left-lg tracking-md">
               News
           </span>
 
           <img
-            class="absolute h-full w-full object-cover top-0 left-0 z-[-1]"
+            class="absolute h-full w-full object-cover md:top-0 -top-1/2 md:translate-y-0 translate-y-1/2 transform left-0 z-[-1]"
             :src="newsFrame"
             alt=""
           >
-          <div class="flex justify-between flex-1 items-end">
-            <h3 class="text-white text-lg2 font-bold uppercase tracking-md max-w-[250px] leading-[30px]">
+          <div class="flex justify-between flex-1 items-end md:bg-transparent bg-black md:p-0 p-sm">
+            <h3 class="text-white md:text-lg2 font-bold uppercase tracking-md md:max-w-[250px] md:leading-lg2">
               Découvrez la
-              saison 3 et ses nouveautés</h3>
+              saison 3 et ses nouveautés
+            </h3>
             <div>
               <button
-                class="uppercase text-white border min-h-[55px] tracking-md border-white inline-flex justify-center items-center min-w-[150px] text-lg font-bold"
+                class="uppercase text-white border md:min-h-[55px] tracking-md border-white inline-flex justify-center items-center md:min-w-[150px] min-w-[103px] text-lg font-bold"
               >
                 Voir
               </button>
@@ -110,13 +119,14 @@
         <div class="flex gap-lg">
           <template v-if="!statsAreLoading">
             <Tile class="flex-1">
-              <div class="flex gap-xl w-full pl-lg">
+              <div class="flex md:flex-row flex-col items-center md:gap-xl gap-sm w-full md:pl-lg">
                 <img
+                    class="md:w-auto w-[30px]"
                   :src="timeIcon"
                   alt=""
                 >
                 <div>
-                  <span class="block text-primary text-md2 uppercase tracking-md">Temps de jeu cumulé</span>
+                  <span class="block text-primary text-md2 uppercase tracking-md text-center">Temps de jeu cumulé</span>
                   <span class="text-white text-md2 font-sans flex items-center gap-2 font-normal">
                     <span class="!font-gotham uppercase text-xl font-bold tracking-md">
                       {{ round(userStats?.gameTime / 3600, 2) }}
@@ -139,35 +149,35 @@
 
         <template v-if="!statsAreLoading">
           <div class="grid grid-cols-12 gap-x-sm gap-y-md2 mt-md2">
-            <div class="col-span-6">
-              <Tile>
-                <span class="block text-primary text-md2 uppercase tracking-md">Max dégâts dans une partie</span>
-                <span class="block text-white font-bold text-xl leading-xl uppercase tracking-lg">{{
+            <div class="col-span-6 flex">
+              <Tile class="flex-1">
+                <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Max dégâts dans une partie</span>
+                <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg">{{
                     userStats?.inflictedDamage
                   }}</span>
               </Tile>
             </div>
-            <div class="col-span-6">
-              <Tile>
-                <span class="block text-primary text-md2 uppercase tracking-md">Max kill streak</span>
-                <span class="block text-white font-bold text-xl leading-xl uppercase tracking-lg">{{
+            <div class="col-span-6 flex">
+              <Tile class="flex-1">
+                <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Max kill streak</span>
+                <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg">{{
                     userStats?.bestKillStreak
                   }}</span>
               </Tile>
             </div>
-            <div class="col-span-6">
-              <Tile>
-                <span class="block text-primary text-md2 uppercase tracking-md">Total distance parcourue</span>
-                <span class="block text-white font-bold text-xl leading-xl uppercase tracking-lg flex items-center gap-2">
+            <div class="col-span-6 flex">
+              <Tile class="flex-1">
+                <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Total distance parcourue</span>
+                <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg flex items-center gap-2">
                   {{ round(userStats?.traveledDistance) }}
                   <span class="text-md !font-sans normal-case font-medium tracking-normal">Mètres</span>
                 </span>
               </Tile>
             </div>
-            <div class="col-span-6">
-              <Tile>
-                <span class="block text-primary text-md2 uppercase tracking-md">Moy distance / partie</span>
-                <span class="block text-white font-bold text-xl leading-xl uppercase tracking-lg flex items-center gap-2">
+            <div class="col-span-6 flex">
+              <Tile class="flex-1">
+                <span class="block text-primary md:text-md2 uppercase tracking-md text-center">Moy distance / partie</span>
+                <span class="block text-white font-bold md:text-xl text-lg leading-xl uppercase tracking-lg flex items-center gap-2">
                   {{ round(userStats?.traveledDistanceAverage / 1000, 1) }}
                   <span class="text-md !font-sans normal-case font-medium tracking-normal">Km</span>
                 </span>
@@ -324,11 +334,17 @@ const activeSeasonId = computed(() => seasonStore.getActiveSeasonId);
 .profile {
   .profile__season-frame {
     background-image: url('~@/assets/season-frame.webp');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 213px;
-    width: 252px;
+    height: 139px;
+    width: 133px;
+
+    @screen md {
+      background-size: cover;
+      height: 213px;
+      width: 252px;
+    }
   }
 }
 </style>

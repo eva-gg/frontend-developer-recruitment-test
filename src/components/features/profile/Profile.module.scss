@@ -13,7 +13,7 @@
     margin-top: 50px;
     padding-bottom: 60px;
     background: url(../../../assets/images/profile_header_mobile.png);
-    background-size: cover;
+    background-size: contain;
 
 
     @include respond-to('small') {

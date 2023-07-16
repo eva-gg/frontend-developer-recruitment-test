@@ -2,6 +2,8 @@
 @import '../../../constants/Mixins.module.scss';
 
 .container {
+  background-color: $dark_blue;
+  min-height: 100vh;
 
   >.headerMobile {
     position: relative;

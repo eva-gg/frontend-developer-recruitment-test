@@ -1,4 +1,4 @@
-import React, { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES, LegacyRef, Ref, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './SelectSeason.module.scss';
 import { Season } from '../../../constants/Types';
 

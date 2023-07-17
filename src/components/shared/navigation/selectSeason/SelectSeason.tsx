@@ -1,21 +1,29 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './SelectSeason.module.scss';
 import { Season } from '../../../../constants/Types';
+import { useDispatch } from 'react-redux';
+import { setSeason } from '../../../../reducer/season';
+import { getSeasons } from '../../../../constants/Global';
 
-interface Props {
-  selected: Season | null,
-  setSelected: Function,
-  data: Array<Season>,
-}
-
-const SelectSeason = ({
-  selected,
-  setSelected,
-  data,
-}: Props) => {
+const SelectSeason = () => {
+  const dispatch = useDispatch();
+  const [selected, setSelected] = useState<Season | null>(null);
+  const [seasons, setSeasons] = useState<Array<Season>>([]);
   const [open, setOpen] = useState<boolean>(false);
   const chevron: string = require('../../../../assets/icons/chevron.svg').default;
   const selectRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    getSeasons().then((r) => {
+      if (r.data) {
+        setSeasons(r.data.sort((a: Season, b: Season) => a.id < b.id ? 1 : -1));
+        setSelected(r.data[0]);
+        dispatch(setSeason(r.data[0]));
+      } else {
+        alert('Failed to get seasons');
+      }
+    });
+  }, []);
 
   const topOption = () => {
     if (selectRef.current) {
@@ -23,11 +31,12 @@ const SelectSeason = ({
     }
   };
 
-  const options = data.map((d: Season, i: number) => (
+  const options = seasons.map((d: Season, i: number) => (
     <button
       className={`${styles.option} ${d.id === selected?.id ? styles.selected : null}`}
       key={`season_${d.id}`}
       onClick={() => {
+        dispatch(setSeason(d));
         setSelected(d);
         setOpen(false);
       }
@@ -37,6 +46,12 @@ const SelectSeason = ({
       <span>Season&nbsp;{d.id}</span>
     </button>
   ));
+
+  if (!seasons.length) {
+    return (
+      <span>...</span>
+    )
+  }
 
   return (
     <button className={styles.container} onClick={() => setOpen(!open)} ref={selectRef}>

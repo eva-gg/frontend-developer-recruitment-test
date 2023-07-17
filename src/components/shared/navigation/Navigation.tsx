@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Navigation.module.scss';
-import Select from './selectSeason/SelectSeason';
-import { Route, Season } from '../../../constants/Types';
-import { getSeasons } from '../../../constants/Global';
+import SelectSeason from './selectSeason/SelectSeason';
+import { Route } from '../../../constants/Types';
+import { useSelector } from 'react-redux';
 
 interface Props {
   selected: number,
@@ -13,8 +13,17 @@ const Navigation = ({
   selected,
   routes,
 }: Props) => {
-  const [selectedSeason, setSelectedSeason] = useState<Season | null>(null);
-  const [seasons, setSeasons] = useState<Array<Season>>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const { season } = useSelector(
+    (state: any) => state,
+  );
+
+  useEffect(() => {
+    setLoading(true);
+    if (season.id) {
+      setLoading(false);
+    }
+  }, [season]);
 
   const mappedRoutes: () => JSX.Element[] = () => routes.map((r: Route) => (
     <button className={`${styles.route} ${selected === r.id ? styles.selected : ''}`} key={`route_${r.id}`}>
@@ -22,31 +31,17 @@ const Navigation = ({
     </button>
   ));
 
-  useEffect(() => {
-    getSeasons().then((r) => {
-      if (r.data) {
-        setSeasons(r.data.sort((a: Season, b: Season) => a.id < b.id ? 1 : -1));
-      } else {
-        alert('Failed to get seasons');
-      }
-    });
-  }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles.row}>
         <div className={styles.profile}>
           <div className={styles.level}>
-            <span>20</span>
+            <span>{loading ? '...' : '20'}</span>
           </div>
           <span>Balzou</span>
         </div>
         <div className={styles.selectContainer}>
-          {seasons.length ? (
-            <Select selected={selectedSeason || seasons[0]} data={seasons} setSelected={setSelectedSeason} />
-          ) : (
-            <span>...</span>
-          )}
+          <SelectSeason />
         </div>
       </div>
       <div className={styles.row}>

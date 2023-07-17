@@ -43,7 +43,7 @@ const SelectSeason = () => {
       }
     >
       {i === 0 && (<span className={styles.subtitle}>Saison actuelle</span>)}
-      <span>Season&nbsp;{d.id}</span>
+      <span>Saison&nbsp;{d.id}</span>
     </button>
   ));
 
@@ -55,7 +55,7 @@ const SelectSeason = () => {
 
   return (
     <button className={styles.container} onClick={() => setOpen(!open)} ref={selectRef}>
-      <span>Season&nbsp;{selected?.id}</span>
+      <span>Saison&nbsp;{selected?.id}</span>
       <img src={chevron} alt="" className={open ? styles.open : undefined} />
       {open && <div className={styles.options} style={{ top: `${topOption()}px` }}>
         {options}

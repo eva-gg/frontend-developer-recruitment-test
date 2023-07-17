@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Navigation.module.scss';
-import Select from '../selectSeason/SelectSeason';
+import Select from './selectSeason/SelectSeason';
 import { Route, Season } from '../../../constants/Types';
 import { getSeasons } from '../../../constants/Global';
 

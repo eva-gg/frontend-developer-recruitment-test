@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styles from './SelectSeason.module.scss';
-import { Season } from '../../../constants/Types';
+import { Season } from '../../../../constants/Types';
 
 interface Props {
   selected: Season | null,
@@ -14,7 +14,7 @@ const SelectSeason = ({
   data,
 }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
-  const chevron: string = require('../../../assets/icons/chevron.svg').default;
+  const chevron: string = require('../../../../assets/icons/chevron.svg').default;
   const selectRef = useRef<HTMLButtonElement | null>(null);
 
   const topOption = () => {

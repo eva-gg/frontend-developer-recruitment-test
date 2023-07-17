@@ -18,3 +18,11 @@ export function responseHandler(resp: any) {
 export function getSeasons() {
   return fetch('https://17e246be-bef6-4291-9d4a-b9ed1626d36c.mock.pstmn.io/seasons').then(responseHandler);
 }
+
+export function getUser() {
+  return fetch('https://17e246be-bef6-4291-9d4a-b9ed1626d36c.mock.pstmn.io/auth/me').then(responseHandler);
+}
+
+export function getUserSeasonXp() {
+  return fetch('https://17e246be-bef6-4291-9d4a-b9ed1626d36c.mock.pstmn.io/users/1/experiences').then(responseHandler);
+}

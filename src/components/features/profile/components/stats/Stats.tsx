@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Stats.module.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserSeasonXp } from '../../../../../constants/Global';
+import { clearSeasonXp, setUserSeasonXp } from '../../../../../reducer/user';
 
 const Stats = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const { season } = useSelector(
+  const dispatch = useDispatch();
+  const { season, user } = useSelector(
     (state: any) => state,
   );
   const progressionRef = useRef<HTMLDivElement | null>(null);
@@ -16,19 +19,37 @@ const Stats = () => {
     setLoading(true);
     if (season.id) {
       setLoading(false);
-      if (progressionRef.current) {
-        progressionRef.current.style.width = '20%';
-      }
     }
   }, [season]);
+
+  useEffect(() => {
+    dispatch(clearSeasonXp());
+    getUserSeasonXp().then((d) => {
+      if (d.data) {
+        dispatch(setUserSeasonXp(d.data));
+      } else {
+        alert('Failed to get user season experience');
+      }
+    })
+  }, [season]);
+
+  useEffect(() => {
+    if (progressionRef.current) {
+      if (user.seasonXp.level) {
+        progressionRef.current.style.width = `${user.seasonXp.level}%`;
+      } else {
+        progressionRef.current.style.width = '0%';
+      }
+    }
+  }, [user, season]);
 
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.profile}>
-          <span className={styles.pseudo}>Balzou</span>
+          <span className={styles.pseudo}>{user.displayName || '...'}</span>
           <div className={styles.level}>
-            <span>Niveau :&nbsp;{loading ? '...' : '20 / 100'}</span>
+            <span>Niveau :&nbsp;{!user.seasonXp.level ? '...' : `${user.seasonXp.level} / 100`}</span>
             <div className={styles.progressBar}>
               <div className={styles.progression} ref={progressionRef} />
             </div>

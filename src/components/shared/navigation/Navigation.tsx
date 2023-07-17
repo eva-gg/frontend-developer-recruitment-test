@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Navigation.module.scss';
 import SelectSeason from './selectSeason/SelectSeason';
-import { Route } from '../../../constants/Types';
-import { useSelector } from 'react-redux';
+import { Route, User } from '../../../constants/Types';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from '../../../constants/Global';
+import { setUser } from '../../../reducer/user';
 
 interface Props {
   selected: number,
@@ -13,17 +15,21 @@ const Navigation = ({
   selected,
   routes,
 }: Props) => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const { season } = useSelector(
+  const dispatch = useDispatch();
+  const { user } = useSelector(
     (state: any) => state,
   );
 
   useEffect(() => {
-    setLoading(true);
-    if (season.id) {
-      setLoading(false);
-    }
-  }, [season]);
+    getUser().then((u) => {
+      if (u.data) {
+        const user: User = u.data;
+        dispatch(setUser(user));
+      } else {
+        alert('failed to get user infos');
+      }
+    })
+  })
 
   const mappedRoutes: () => JSX.Element[] = () => routes.map((r: Route) => (
     <button className={`${styles.route} ${selected === r.id ? styles.selected : ''}`} key={`route_${r.id}`}>
@@ -36,9 +42,9 @@ const Navigation = ({
       <div className={styles.row}>
         <div className={styles.profile}>
           <div className={styles.level}>
-            <span>{loading ? '...' : '20'}</span>
+            <span>{user.seasonXp.level || '...'}</span>
           </div>
-          <span>Balzou</span>
+          <span>{user.displayName || '...'}</span>
         </div>
         <div className={styles.selectContainer}>
           <SelectSeason />

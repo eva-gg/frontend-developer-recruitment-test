@@ -12,3 +12,17 @@ export type Season = {
   active: boolean,
   status: string,
 }
+
+export type User = {
+  username: string,
+  displayName: string,
+  email: string,
+  seasonXp: {
+    level: number,
+    levelProgressionPercentage: number,
+    experience: number,
+    experienceForNextLevel: number,
+    experienceForCurrentLevel: number,
+    seasonId: number,
+  }
+}

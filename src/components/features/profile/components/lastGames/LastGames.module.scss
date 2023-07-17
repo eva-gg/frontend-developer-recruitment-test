@@ -3,36 +3,47 @@
 
 .container {
   margin-top: 34px;
-  padding-left: 12px;
-  width: calc(100% - 12px);
+  width: 100vw;
 
-  >table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 8px;
+  >p {
+    padding-left: 12px;
+  }
 
-    >tr {
-      height: 60px;
+  >.tableContainer {
+    width: 100vw;
+    overflow-y: scroll;
+    display: inline-grid;
 
-      &:first-of-type {
-        height: unset;
-      }
+    >table {
+      border-collapse: collapse;
+      margin-top: 8px;
+      padding: 0 12px;
+      width: 675px;
 
-      th {
-        background-color: #000;
-        text-align: center;
-        padding: 8px;
-        text-transform: uppercase;
-      }
+      >tr {
+        height: 60px;
 
-      td {
-        text-align: center;
-        min-height: 60px;
-        border-bottom: 1px solid $grey;
-        color: $grey;
+        &:first-of-type {
+          height: unset;
+        }
 
-        &:nth-child(even) {
-          background-color: $blue_second;
+        th {
+          background-color: #000;
+          text-align: center;
+          padding: 8px;
+          text-transform: uppercase;
+        }
+
+        td {
+          text-align: center;
+          min-height: 60px;
+          border-bottom: 1px solid $grey;
+          color: $grey;
+          text-transform: capitalize;
+
+          &:nth-child(even) {
+            background-color: $blue_second;
+          }
         }
       }
     }

@@ -39,3 +39,36 @@ export type UserStats = {
   traveledDistanceAverage: number,
   bestKillStreak: number,
 }
+
+export type Team =  {
+  score: number,
+  name: string,
+}
+
+export type Player = {
+  data: {
+    niceName: string,
+    outcome: string,
+    rank: string,
+    score: number,
+    team: Team,
+  },
+  id: number,
+  userId: number,
+}
+
+export type Game = {
+  createdAt: string,
+  data: {
+    gameId: number,
+    duration: number,
+    mode: string,
+    map: string,
+    outcome: null,
+    success: boolean,
+    teamOne: Team,
+    teamTwo: Team,
+  }
+  id: number,
+  players: Array<Player>
+}

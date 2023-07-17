@@ -34,7 +34,7 @@ const LastGames = () => {
         alert('Failed to get games mode');
       }
     });
-  })
+  }, []);
 
   const rows = () => gamesHistory.slice(0, seeAll ? gamesHistory.length : 4).map((g: Game) => (
     <tr>

@@ -1,0 +1,21 @@
+@import './Colors.module.scss';
+
+.bold {
+  font-weight: bold;
+}
+
+.gold {
+  color: $gold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.center {
+  text-align: center;
+}

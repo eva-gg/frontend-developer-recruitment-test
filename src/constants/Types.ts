@@ -26,3 +26,16 @@ export type User = {
     seasonId: number,
   }
 }
+
+export type UserStats = {
+  gameCount: number,
+  gameTime: number,
+  gameVictoryCount: number,
+  gameDefeatCount: number,
+  gameDrawCount: number,
+  inflictedDamage: number,
+  bestInflictedDamage: number,
+  traveledDistance: number,
+  traveledDistanceAverage: number,
+  bestKillStreak: number,
+}

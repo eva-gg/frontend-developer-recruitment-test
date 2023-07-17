@@ -26,3 +26,7 @@ export function getUser() {
 export function getUserSeasonXp() {
   return fetch('https://17e246be-bef6-4291-9d4a-b9ed1626d36c.mock.pstmn.io/users/1/experiences').then(responseHandler);
 }
+
+export function getUserStats() {
+  return fetch('https://17e246be-bef6-4291-9d4a-b9ed1626d36c.mock.pstmn.io/users/1/statistics').then(responseHandler);
+}

@@ -1,0 +1,99 @@
+@import '../../../constants/Colors.module.scss';
+@import '../../../constants/Mixins.module.scss';
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000000 0% 0% no-repeat padding-box;
+  opacity: 1;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 3.6px;
+  display: flex;
+  flex-direction: row;
+
+  @include respond-to('small') {
+    flex-direction: column;
+  }
+
+  >.row {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    align-items: center;
+    overflow: auto;
+
+    &:first-of-type {
+      width: 100vw;
+      justify-content: space-between;
+      padding-left: 133.5px;
+      width: fit-content;
+      overflow: unset;
+
+      @include respond-to('small') {
+        padding-left: unset;
+        width: 100vw;
+        overflow: auto;
+        border-bottom: 1px solid $grey;
+      }
+    }
+
+    >.profile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      padding: 4px 14px;
+
+      >.level {
+        background-image: url(../../../assets/images/level_bg.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        >span {
+          color: #000;
+          font-size: 18px; // 23px on the design but uggly caused of wrong font family i guess
+          letter-spacing: 0.23px;
+        }
+      }
+    }
+
+    >.selectContainer {
+      border-left: 1px solid $grey;
+      padding: 0 6px 0 12px;
+    }
+
+    >.route {
+      border: unset;
+      background: unset;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: 3.6px;
+      padding: 12px;
+      white-space: nowrap;
+
+      &:first-of-type {
+        margin-left: 20px;
+      }
+
+      &:last-of-type {
+        margin-right: 20px;
+      }
+
+      &.selected {
+        border-bottom: 4px solid $purple;
+      }
+    }
+  }
+}

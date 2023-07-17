@@ -1,0 +1,14 @@
+@import '../../../constants/Colors.module.scss';
+@import '../../../constants/Mixins.module.scss';
+
+.container {
+  background-color: $dark_blue;
+  color: #fff;
+  padding-bottom: 120px;
+  padding-top: 48px;
+  overflow: hidden;
+
+  @include respond-to('small') {
+    padding-top: unset;
+  }
+}

@@ -14,6 +14,7 @@ export type Season = {
 }
 
 export type User = {
+  id: number,
   username: string,
   displayName: string,
   email: string,
@@ -70,5 +71,13 @@ export type Game = {
     teamTwo: Team,
   }
   id: number,
-  players: Array<Player>
+  players: Array<Player>,
+}
+
+export type GameMode = {
+  id: number,
+  name: string,
+  shortName: string,
+  maxPlayer: number,
+  minPlayer: number,
 }

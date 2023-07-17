@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styles from './LastGames.module.scss';
 import { useSelector } from 'react-redux';
-import { getGamesHistory } from '../../../../../constants/Global';
-import { Game } from '../../../../../constants/Types';
+import { getGamesHistory, getGamesMode } from '../../../../../constants/Global';
+import { Game, GameMode, Player } from '../../../../../constants/Types';
 import moment from 'moment-timezone';
 
 const LastGames = () => {
   const [gamesHistory, setGamesHistory] = useState<Array<Game>>([]);
+  const [gamesMode, setGamesMode] = useState<Array<GameMode>>([]);
   const [seeAll, setSeeAll] = useState<boolean>(false);
-  const { season } = useSelector(
+  const { user, season } = useSelector(
     (state: any) => state,
   );
 
@@ -25,12 +26,22 @@ const LastGames = () => {
     }
   }, [season]);
 
+  useEffect(() => {
+    getGamesMode().then((d) => {
+      if (d.data) {
+        setGamesMode(d.data);
+      } else {
+        alert('Failed to get games mode');
+      }
+    });
+  })
+
   const rows = () => gamesHistory.slice(0, seeAll ? gamesHistory.length : 4).map((g: Game) => (
     <tr>
-      <td>{g.data.mode}</td>
+      <td>{gamesMode.find((gm: GameMode) => gm.id === g.data.gameId)?.name}</td>
       <td>{g.players.length}</td>
       <td>{g.data.map.replaceAll('_', ' ')}</td>
-      <td>{g.data.success ? 'Victoire' : 'Défaite'}</td>
+      <td>{g.players.find((p: Player) => p.userId === user.id)?.data.outcome === 'VICTORY' ? 'Victoire' : 'Défaite'}</td>
       <td>{g.createdAt && moment(g.createdAt).format('DD/MM/YYYY')}</td>
       <td>{g.createdAt && moment(g.createdAt).format('HH[h]mm')}</td>
     </tr>

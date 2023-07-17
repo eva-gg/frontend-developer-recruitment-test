@@ -34,3 +34,7 @@ export function getUserStats() {
 export function getGamesHistory() {
   return fetch('https://17e246be-bef6-4291-9d4a-b9ed1626d36c.mock.pstmn.io/game-histories').then(responseHandler);
 }
+
+export function getGamesMode() {
+  return fetch('https://17e246be-bef6-4291-9d4a-b9ed1626d36c.mock.pstmn.io/games').then(responseHandler);
+}

@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const userSlice = createSlice({
-  name: 'progress',
+  name: 'user',
   initialState: {
+    id: null,
     username: null,
     displayName: null,
     email: null,
@@ -17,6 +18,7 @@ const userSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
+      state.id = action.payload.id;
       state.username = action.payload.username;
       state.displayName = action.payload.displayName;
       state.email = action.payload.email;

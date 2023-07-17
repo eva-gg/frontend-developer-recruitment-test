@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const seasonSlice = createSlice({
-  name: 'progress',
+  name: 'season',
   initialState: {
     id: null,
     from: null,

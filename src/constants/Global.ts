@@ -1,5 +1,3 @@
-
-
 export function responseHandler(resp: any) {
   if (resp.status === 500) return resp;
   if (!resp.ok) {

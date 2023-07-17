@@ -11,7 +11,6 @@
   background: url(../../../../../assets/images/profile_header_mobile.png);
   background-size: contain;
 
-
   @include respond-to('small') {
     display: block;
   }
@@ -26,7 +25,7 @@
     display: grid;
     grid-template-columns: auto auto;
     gap: 12px;
-    border-top: 1px solid #666;
+    border-top: 1px solid $grey;
     align-items: center;
     padding: 0 16px;
 
@@ -45,5 +44,4 @@
       padding: 8px 36px;
     }
   }
-
 }

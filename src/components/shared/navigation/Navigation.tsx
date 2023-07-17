@@ -29,7 +29,7 @@ const Navigation = ({
         alert('failed to get user infos');
       }
     })
-  })
+  });
 
   const mappedRoutes: () => JSX.Element[] = () => routes.map((r: Route) => (
     <button className={`${styles.route} ${selected === r.id ? styles.selected : ''}`} key={`route_${r.id}`}>
